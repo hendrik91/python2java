@@ -6,6 +6,7 @@ import Replacer.DoubleReplacer as DoubleReplacer
 import Replacer.BlockReplacer as BlockReplacer
 import Replacer.LoopReplacer as LoopReplacer
 import Replacer.SyntaxReplacer as SyntaxReplacer
+import Replacer.CommandReplacer as CommandReplacer
 
 
 def openClass(outFile, name):
@@ -22,6 +23,7 @@ replacers.append(IntegerReplacer.IntegerReplacer())
 replacers.append(DoubleReplacer.DoubleReplacer())
 replacers.append(LoopReplacer.LoopReplacer())
 replacers.append(SyntaxReplacer.SyntaxReplacer())
+replacers.append(CommandReplacer.CommandReplacer())
 
 javaCode = ""
 
