@@ -1,17 +1,23 @@
 import re
 
 class Replacer:
-	__regex = None
-	__replace = None
+	__rules = []
 	__used = 0
 
-	def __init__(self, regex, replace):
-		self.__regex = regex
-		self.__replace = replace
+	def __init__(self, rule):
+		if type(rule) == tuple:
+			self.__rules.append(rule)
+		else:
+			self.__rules = rule
 
 	def simpleReplace(self, input):
-		return re.sub(self.__regex, self.__replace, input, re.I)
+		for rule in self.__rules:
+			input = re.sub(rule[0], rule[1], input, re.I)
+		return input
 
 	def replace(self, input):
 		return self.simpleReplace(input)
+
+	def getRules(self):
+		return self.__rules
 
